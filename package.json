@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack",
-    "publish": "git subtree push --prefix dist origin gh-pages"
+    "publish": "git subtree push --prefix dist origin gh-pages",
+    "dist": "git add dist && git commit -m \"Initial dist subtree commit\""
   },
   "author": "James Spears, V",
   "license": "MIT",
