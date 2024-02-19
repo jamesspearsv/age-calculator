@@ -1,2 +1,2 @@
-// Style imports
+// Style & Asset Imports
 import "./styles/main.css";
