@@ -23,6 +23,18 @@
 }
 
 /* Class bases rules */
+.age {
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.age span {
+  margin-right: 0.2rem;
+  font-size: 1.4rem;
+  color: var(--color-purple);
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -33,8 +45,114 @@
 }
 
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--color-purple);
   font-size: var(--font-small);
 }
 
+.button-group {
+  position: relative;
+}
+
+.button-group::before {
+  content: "";
+  height: 2px;
+  display: block;
+  background-color: var(--color-light-grey);
+  width: 2.8rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.button-group::after {
+  content: "";
+  height: 2px;
+  display: block;
+  background-color: var(--color-light-grey);
+  width: 2.8rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.fieldset {
+  justify-content: space-between;
+}
+
+.form-group {
+  width: 30%;
+  gap: 0.2rem;
+}
+
+.form-group label {
+  font-size: 0.4rem;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+  color: var(--color-smokey-grey);
+}
+
+.form-group input {
+  border: solid 1px var(--color-light-grey);
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 0.5rem;
+}
+
+.form-group input:active,
+.form-group input:focus {
+  outline: 1px solid var(--color-purple);
+}
+
+.form-button {
+  height: 2rem;
+  width: 2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  background-color: var(--color-purple);
+  border: 1px solid var(--color-purple);
+  margin: auto;
+}
+
+.form-button:hover,
+.form-button:focus {
+  background-color: var(--color-off-black);
+  border: 1px solid var(--color-off-black);
+}
+
 /* Element rules */
+body {
+  background-color: var(--color-off-white);
+  height: 100dvh;
+  padding: 0;
+}
+
+form {
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+}
+
+main {
+  background-color: var(--color-white);
+  width: 80%;
+  margin: auto;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  border-bottom-right-radius: 3rem;
+}
+
+/* Utility Classes */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.centered {
+  justify-content: center;
+}
