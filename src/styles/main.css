@@ -104,6 +104,15 @@
   outline: 1px solid var(--color-purple);
 }
 
+/* 
+.form-group input:invalid {
+  border-color: var(--color-light-red);
+}
+.form-group input:invalid:focus + label {
+  color: var(--color-light-red);
+}
+*/
+
 .form-button {
   height: 2rem;
   width: 2rem;
@@ -148,6 +157,11 @@ main {
   flex-direction: column;
 }
 
+.flex-column-reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -155,4 +169,12 @@ main {
 
 .centered {
   justify-content: center;
+}
+
+.form-group input.invalid {
+  outline-color: var(--color-light-red);
+}
+
+.invalid + label {
+  color: var(--color-light-red);
 }
