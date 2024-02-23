@@ -77,3 +77,7 @@ Add a function to validation.js that validates the form as a whole when submitte
 Today I mostly finished the form validation. Now the form will be validated for most of the above cases with the exception for a year day mismatch. The validation function is fired anytime a user leaves a field. I also added `validateForm()` in validate.js. This function is fired when a user submits the form and checks the form's validity using the method `checkValidity()` from the Constraint Validation API. This function returns true if the form is valid and otherwise false. If the form is invalid, each form field is validated again to inform the user of any invalid field.
 
 I also started the view module in view.js. The function `styleValidation()` takes as input a form field and a boolean. This boolean is returned by `validateField()` and is false if the field is invalid and otherwise true. This function either adds or removes the class `.invalid` depending on if the field is invalid. It then sets the text content of the error div in the targeted field's form group as the field's validation message.
+
+### Next Steps
+
+Next I want to implement the month date mismatch validation and then return to styling the app for a desktop screen. After these tasks I sould be ready to build the age calculation function.
