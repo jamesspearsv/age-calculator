@@ -40,13 +40,13 @@ I also think it would be helpful to list out the validation cases that I need to
 
 Validation Cases
 
-- [x] value missing in a required field
-- [x] range overflow (month and day)
-- [x] range underflow (month and day)
-- [x] pattern mismatch (i.e. input not YYYY)
-- [x] bad input (i.e. prevent a user from entering a value that is not a number)
-- [x] year in the future (year)
-- [ ] month and day mismatch (i.e prevent a user from entering an invalid date like 2/30/2024)
+- value missing in a required field
+- range overflow (month and day)
+- range underflow (month and day)
+- pattern mismatch (i.e. input not YYYY)
+- bad input (i.e. prevent a user from entering a value that is not a number)
+- year in the future (year)
+- month and day mismatch (i.e prevent a user from entering an invalid date like 2/30/2024)
 
 ### Next Steps
 
@@ -63,7 +63,7 @@ Today I wrote `validateField` in validate.js that I can call anytime that a fiel
 - patternMismatch
 - future year
 
-I also added some logic to add an `.invalid` class to the field triggering the `focusout` event. The turns both the `<input>` and `<label>` red while the field is invalid.
+I also added some logic to main.js to add an `.invalid` class to the field triggering the `focusout` event. The turns both the `<input>` and `<label>` red while the field is invalid. Eventually this logic will be moved into a seperate module responsible for managing the UI of the app.
 
 ### Next Steps
 
