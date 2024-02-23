@@ -1,39 +1,60 @@
 const validation = (() => {
   const validateField = (field) => {
     const validity = field.validity;
-    const name = field.name;
 
     // valueMissing
     if (validity.valueMissing) {
-      return "Required";
+      field.setCustomValidity("Required");
+      return false;
     }
 
     // rangeUnderflow and rangeOverflow
     if (validity.rangeUnderflow || validity.rangeOverflow) {
-      return "Input out of range";
+      if (field.name === "day") field.setCustomValidity("Must be a valid day");
+
+      if (field.name === "month")
+        field.setCustomValidity("Must be a valid month");
+
+      return false;
     }
 
     // badInput
     if (validity.badInput) {
-      return "Bad Input";
+      field.setCustomValidity("Must be a number");
+      return false;
     }
 
     // patternMismatch
     if (validity.patternMismatch) {
-      return "Pattern mismatch";
+      field.setCustomValidity("Must be a valid year");
+      return false;
     }
 
     // future date
-    // TODO: Get current year programatically.
+    // todo: Get current year programatically.
     if (field.name === "year" && field.value > 2024) {
-      return "Future year";
+      field.setCustomValidity("Cannot be future year");
+      return false;
     }
 
+    // todo: test for month date mismatch
+
     // no error
-    return null;
+    field.setCustomValidity("");
+    return true;
   };
 
-  return { validateField };
+  const validateForm = (form) => {
+    // todo: add validity check to see if month and day match
+    // check form validity
+    if (form.checkValidity()) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  return { validateField, validateForm };
 })();
 
 export default validation;

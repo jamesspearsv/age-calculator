@@ -20,7 +20,7 @@ Your users should be able to:
 
 - [ ] View an age in years, months, and days after submitting a valid date through the form
 - [ ] Receive validation errors if:
-  - [ ] Any field is empty when the form is submitted
+  - [x] Any field is empty when the form is submitted
   - [x] The day number is not between 1-31
   - [x] The month number is not between 1-12
   - [x] The date is in the future
