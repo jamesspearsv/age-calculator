@@ -172,6 +172,7 @@ main {
 }
 
 .form-group input.invalid {
+  border-color: var(--color-light-red);
   outline-color: var(--color-light-red);
 }
 

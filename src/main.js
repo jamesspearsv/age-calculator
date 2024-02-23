@@ -3,14 +3,23 @@ import "./styles/reset.css";
 import "./styles/main.css";
 
 // Module Imports
-import forms from "./js/forms";
+import validation from "./js/validate";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   form.setAttribute("novalidate", true);
 
   form.addEventListener("focusout", (event) => {
-    forms.validate(event.target);
+    console.log(event.target);
+    const error = validation.validateField(event.target);
+
+    if (error) {
+      event.target.classList.add("invalid");
+    } else {
+      event.target.classList.remove("invalid");
+    }
+
+    console.log(error);
   });
 
   form.addEventListener("submit", (event) => {
