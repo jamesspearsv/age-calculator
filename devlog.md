@@ -2,8 +2,6 @@
 
 This is a log of my progress on this challenge from start to finish. This log helps review what work has been previously accomplished, any challenges faced, and the next steps at the end of each work session.
 
----
-
 ## February 19, 2024
 
 - Implement html skeleton for app
