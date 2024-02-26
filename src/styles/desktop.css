@@ -1,0 +1,47 @@
+@media only screen and (min-width: 1000px) {
+  main {
+    width: min(20rem, 70%);
+    padding: 1rem;
+  }
+
+  /* Submit buttion and divider */
+  .button-group {
+    justify-content: end;
+  }
+
+  .divider:has(+ .form-button) {
+    width: calc(100% - 2rem);
+  }
+
+  .form-button {
+    height: calc(var(--size-submit) * 1.2);
+    width: calc(var(--size-submit) * 1.2);
+  }
+
+  .form-button + .divider {
+    display: none;
+  }
+
+  /* Form inputs and labels */
+  .fieldset {
+    justify-content: start;
+    gap: 0.7rem;
+  }
+
+  .form-group {
+    width: 25%;
+  }
+
+  .form-group input {
+    font-size: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.5rem;
+  }
+
+  /* Age results */
+  .age {
+    font-size: 1.5rem;
+  }
+}

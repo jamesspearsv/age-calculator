@@ -81,3 +81,13 @@ I also started the view module in view.js. The function `styleValidation()` take
 ### Next Steps
 
 Next I want to implement the month date mismatch validation and then return to styling the app for a desktop screen. After these tasks I sould be ready to build the age calculation function.
+
+## February 25, 2024
+
+I worked briefly on the desktop view today. I set up the view to change based on a breakpoint at 1000px. That is the point where the UI elements begin to become too compact. In a production all, I assume that there would be more than one breakpoint to accomodate multiple screen sizes. I rewrote the form button dividers during this session so that is is easier to change how they appear for each view (mobile and desktop). These were created using `:before` and `:after` psuedo selectors but I instead opted to add a `div` before and after the form's submit button and styling these with a `.divider` class. In the desktop view, I set the display of the right divider to none so that I can move the button and remaining divider to the right of the main container. I learned a handy trick to select both following and previous siblings that I have made good use of during this project. I am really proud of understanding this pattern `.previous-sibling:has(+ .following-sibling)`. I am happy with how the desktop view currently looks and I only had to adjust a handful of rules to achieve this.
+
+### Next steps
+
+Next I plan to implement the actual age calcuation functions. I have a rough idea of how to a complete the calculations and then I will need to add functionality to `view.js` that allows me to display the results to the user.
+
+I am going to take a moment before continuing to read about the Date object in js so that I have a better idea of best ways to work with dates.

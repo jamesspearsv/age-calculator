@@ -1,10 +1,12 @@
 // Style & Asset Imports
 import "./styles/reset.css";
 import "./styles/main.css";
+import "./styles/desktop.css";
 
 // Module Imports
 import validation from "./js/validate";
 import view from "./js/view";
+import calc from "./js/calc";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
@@ -27,7 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isValid) {
       // todo: process the form data
+      calc.calcAge();
       console.log("valid form");
+      form.reset();
     } else {
       // Validate field and handle invalid fields
       for (let i in form.elements) {
