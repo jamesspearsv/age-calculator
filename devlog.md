@@ -65,7 +65,7 @@ I also added some logic to main.js to add an `.invalid` class to the field trigg
 
 ### Next Steps
 
-Add a function to validation.js that validates the form as a whole when submitted. This function should:
+Add a function to `validation.js` that validates the form as a whole when submitted. This function should:
 
 - Check that no form fields are invalid
 - Check that the full date entered is not in the future
@@ -89,3 +89,16 @@ I worked briefly on the desktop view today. I set up the view to change based on
 Next I plan to implement the actual age calcuation functions. I have a rough idea of how to a complete the calculations and then I will need to add functionality to `view.js` that allows me to display the results to the user.
 
 I am going to take a moment before continuing to read about the Date object in js so that I have a better idea of best ways to work with dates.
+
+## February 26, 2024
+
+Today I worked on implementing the age calculation function. This proved more of a challenge than I anticipated but after some thought and a few Google searches, I was able to find a solution. I decided that the easiest way to subtract the difference between two dates was to convert the user inputed date and the current date in to the number of days from 1/1/1900. Doing this let me perform the calcuation in a standard unit that I can then convert back to years, months, and days. I have reached the point that I can now return to the user the number of days that have elapsed between the current date and the inputed date.
+
+This also proved to be somewhat challenging. The biggest challenge was how to handle leap years. Without doing this, the number of days I calculated would be inaccurate and expecially noticable the older the date inputed by the user. I had to look up what tests I could do to determine if a year is a leap year. After I learned that I was able to write a function to test each year between 1900 and the inputed year. This function is in `isLeapYear` which returns a boolean if the year is a leap year or not. This allowed me to count the number of days in each year between 1900 and the inputed year and add them to a tracking variable. I was able to do something similar with the months and days. Again, I needed to test if the inputed year is a leap year to account for the extra day in February. This was easier now that I had a funciton to call. From here, I was able to add the number of days elapsed between January and the inputed month of the inputed year to my days tracking variable. Lastly, I needed to just add the number of inputed days in the inputed month to the days tracking variable. This whole process is found in `calcDays` in `calc.js`. Once the process is complete, I can return the number of days elapsed between the inputed date and 1/1/1900.
+
+The last thing, I needed to do was perform the same calculation for the current date. I created a new date object in `calc.js` so that I can access the current year, month, and day. Now that I had two numbers of days elapsed since 1/1/1900 for the inputed date and the current date, all I had to was subtract the inputed date from the current date. For now, I just log this result to the console. Future steps will be to convert this number back into years, months, and days.
+
+### Next Steps
+
+- Write function to convert number of days between inputed date and current date back into number of years, months, and days
+- Write funciton to display result of the calculation to the user

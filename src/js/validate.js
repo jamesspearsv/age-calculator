@@ -26,7 +26,7 @@ const validation = (() => {
 
     // patternMismatch
     if (validity.patternMismatch) {
-      field.setCustomValidity("Must be a valid year");
+      field.setCustomValidity("Must be a valid year after 1900");
       return false;
     }
 

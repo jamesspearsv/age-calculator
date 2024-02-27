@@ -29,8 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isValid) {
       // todo: process the form data
-      calc.calcAge();
-      console.log("valid form");
+      const elements = form.elements;
+      const year = parseInt(elements.year.value);
+      const month = parseInt(elements.month.value);
+      const day = parseInt(elements.day.value);
+
+      calc.calcAge(year, month, day);
       form.reset();
     } else {
       // Validate field and handle invalid fields
