@@ -102,3 +102,13 @@ The last thing, I needed to do was perform the same calculation for the current 
 
 - Write function to convert number of days between inputed date and current date back into number of years, months, and days
 - Write funciton to display result of the calculation to the user
+
+## February 27, 2024
+
+During this session, I finished implementing the age calcuation functions. What remained to do was to parse the number of days between the submitted date and the current date into the number of years, months, and days. To do this parsing a standard year of 365 days and a standard month of 30 days is assumed. I do this parsing in `parseDays()` in `calc.js`. One not is that this function does not account for the extra day in any leap years between the submitted year and current year. These extra days are included in the number of days returned in the result.
+
+Additionally, I wrote the brief function to display the result of the whole calculation to the user. This is done in `displayResult()`.
+
+### Next steps
+
+All that remains is to do one more validation check when the user submits the form. Users should not be able to input an invalid date such as 2/30/2024. I think this check is best done when the user clicks submit and after the form is validated using `validateForm()`

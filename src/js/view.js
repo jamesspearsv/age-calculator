@@ -14,7 +14,14 @@ const view = (() => {
     error.textContent = field.validationMessage;
   };
 
-  return { styleValidation };
+  const displayResult = (result) => {
+    const spans = document.querySelectorAll(".age > span");
+    spans[0].textContent = result.years;
+    spans[1].textContent = result.months;
+    spans[2].textContent = result.days;
+  };
+
+  return { styleValidation, displayResult };
 })();
 
 export default view;

@@ -18,7 +18,7 @@ You can use any tools you like to help you complete the challenge. So if you've 
 
 Your users should be able to:
 
-- [ ] View an age in years, months, and days after submitting a valid date through the form
+- [x] View an age in years, months, and days after submitting a valid date through the form
 - [ ] Receive validation errors if:
   - [x] Any field is empty when the form is submitted
   - [x] The day number is not between 1-31

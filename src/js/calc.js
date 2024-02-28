@@ -35,6 +35,36 @@ const calc = (() => {
     return days;
   };
 
+  const parseDays = (value) => {
+    const YEAR = 365;
+    const MONTH = 30;
+    const DAY = 1;
+
+    let years = 0,
+      months = 0,
+      days = 0;
+
+    // Count number of years, months, and days
+    while (value) {
+      if (value >= YEAR) {
+        years++;
+        value -= YEAR;
+      } else if (value >= MONTH) {
+        months++;
+        value -= MONTH;
+      } else if (value >= DAY) {
+        days++;
+        value -= DAY;
+      }
+    }
+
+    return {
+      years,
+      months,
+      days,
+    };
+  };
+
   const isLeapYear = (year) => {
     // century leap years
     if (year % 100 === 0) {
@@ -53,11 +83,12 @@ const calc = (() => {
   const calcAge = (year, month, day) => {
     // Get number of days between inputed date and 1/1/1900
     const inputDate = calcDays(year, month, day);
+
     // Get number of days between current date and 1/1/1900
     const currentDate = calcDays(currentYear, currentMonth, currentDay);
 
-    // Calculate the nuber of days between current date and inputed date
-    console.log("Days: " + (currentDate - inputDate));
+    // Return result of calculations and parsing
+    return parseDays(currentDate - inputDate);
   };
 
   return { calcAge };

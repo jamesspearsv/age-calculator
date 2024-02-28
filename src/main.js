@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const month = parseInt(elements.month.value);
       const day = parseInt(elements.day.value);
 
-      calc.calcAge(year, month, day);
+      const result = calc.calcAge(year, month, day);
+      view.displayResult(result);
       form.reset();
     } else {
       // Validate field and handle invalid fields
