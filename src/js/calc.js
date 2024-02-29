@@ -4,6 +4,17 @@ const calc = (() => {
   const currentMonth = date.getMonth() + 1;
   const currentDay = date.getDate();
 
+  const calcAge = (year, month, day) => {
+    // Get number of days between inputed date and 1/1/1900
+    const inputDate = calcDays(year, month, day);
+
+    // Get number of days between current date and 1/1/1900
+    const currentDate = calcDays(currentYear, currentMonth, currentDay);
+
+    // Return result of calculations and parsing
+    return parseDays(currentDate - inputDate);
+  };
+
   const calcDays = (year, month, day) => {
     // Count number of days since 1/1/1900
     let days = 0;
@@ -66,32 +77,10 @@ const calc = (() => {
   };
 
   const isLeapYear = (year) => {
-    // century leap years
-    if (year % 100 === 0) {
-      if (year % 4 === 0 && year % 400 === 0) {
-        return true;
-      }
-    } else if (year % 4 === 0) {
-      // regular leap years
-      return true;
-    } else {
-      // non-leap years
-      return false;
-    }
+    return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
   };
 
-  const calcAge = (year, month, day) => {
-    // Get number of days between inputed date and 1/1/1900
-    const inputDate = calcDays(year, month, day);
-
-    // Get number of days between current date and 1/1/1900
-    const currentDate = calcDays(currentYear, currentMonth, currentDay);
-
-    // Return result of calculations and parsing
-    return parseDays(currentDate - inputDate);
-  };
-
-  return { calcAge };
+  return { calcAge, isLeapYear };
 })();
 
 export default calc;

@@ -1,4 +1,5 @@
 const validation = (() => {
+  const date = new Date();
   const validateField = (field) => {
     const validity = field.validity;
 
@@ -10,10 +11,13 @@ const validation = (() => {
 
     // rangeUnderflow and rangeOverflow
     if (validity.rangeUnderflow || validity.rangeOverflow) {
-      if (field.name === "day") field.setCustomValidity("Must be a valid day");
+      if (field.name === "day") {
+        field.setCustomValidity("Must be a valid day");
+      }
 
-      if (field.name === "month")
+      if (field.name === "month") {
         field.setCustomValidity("Must be a valid month");
+      }
 
       return false;
     }
@@ -31,13 +35,10 @@ const validation = (() => {
     }
 
     // future date
-    // todo: Get current year programatically.
-    if (field.name === "year" && field.value > 2024) {
+    if (field.name === "year" && field.value > date.getFullYear()) {
       field.setCustomValidity("Cannot be future year");
       return false;
     }
-
-    // todo: test for month date mismatch
 
     // no error
     field.setCustomValidity("");
@@ -45,16 +46,26 @@ const validation = (() => {
   };
 
   const validateForm = (form) => {
-    // todo: add validity check to see if month and day match
     // check form validity
-    if (form.checkValidity()) {
-      return true;
+    return form.checkValidity();
+  };
+
+  const validateDate = (input, month, year, isLeapYear) => {
+    const monthsWith31Days = [1, 3, 5, 7, 8, 10, 12];
+    const monthsWith30Days = [4, 6, 9, 11];
+
+    if (monthsWith31Days.includes(month)) {
+      input.max = "31";
+    } else if (monthsWith30Days.includes(month)) {
+      input.max = "30";
+    } else if (month === 2) {
+      isLeapYear(year) ? (input.max = "29") : (input.max = "28");
     } else {
-      return false;
+      input.max = "31";
     }
   };
 
-  return { validateField, validateForm };
+  return { validateField, validateForm, validateDate };
 })();
 
 export default validation;
