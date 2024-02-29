@@ -1,6 +1,6 @@
 @media only screen and (min-width: 1000px) {
   main {
-    width: min(20rem, 70%);
+    width: max(20rem, 50%);
     padding: 1rem;
   }
 

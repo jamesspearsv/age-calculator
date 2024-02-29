@@ -138,7 +138,7 @@ main {
   margin: auto;
   padding: 0.7rem;
   border-radius: 1rem;
-  border-bottom-right-radius: 3rem;
+  border-bottom-right-radius: 5rem;
 }
 
 /* Utility Classes */
